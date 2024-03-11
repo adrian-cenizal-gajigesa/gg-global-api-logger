@@ -1,7 +1,7 @@
 {
   "name": "gg-global-api-logger",
   "version": "1.0.5",
-  "main": "index.ts",
+  "main": "./build/index.js",
   "repository": "https://github.com/adrian-cenizal-gajigesa/gg-global-api-logger.git",
   "author": "gg.adrian.cenizal <110533568+AdrianCenizal@users.noreply.github.com>",
   "license": "MIT",
