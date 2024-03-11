@@ -1,6 +1,6 @@
 {
   "name": "gg-global-api-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.ts",
   "repository": "https://github.com/adrian-cenizal-gajigesa/gg-global-api-logger.git",
   "author": "gg.adrian.cenizal <110533568+AdrianCenizal@users.noreply.github.com>",
