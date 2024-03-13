@@ -1,3 +1,4 @@
+import knex from "knex";
 import { BatchInterceptor } from "@mswjs/interceptors";
 import { ClientRequestInterceptor } from "@mswjs/interceptors/ClientRequest";
 import { XMLHttpRequestInterceptor } from "@mswjs/interceptors/XMLHttpRequest";
@@ -28,6 +29,8 @@ export default function initHttpWrapper(
   serviceName: string,
   ignoredHosts: string[]
 ) {
+  const knexClient = knex({ client: dbClient, connection: dbUrl });
+
   IGNORED_HOST = ignoredHosts;
   const interceptor = new BatchInterceptor({
     name: "batch-interceptor",
@@ -84,6 +87,6 @@ export default function initHttpWrapper(
       responseBody: reError ? null : responseBody,
     };
 
-    void saveNetworkLog(dbClient, dbUrl, payload);
+    void saveNetworkLog(knexClient, payload);
   });
 }

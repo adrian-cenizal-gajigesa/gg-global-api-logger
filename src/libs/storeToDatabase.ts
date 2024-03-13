@@ -1,14 +1,9 @@
-import knex from "knex";
+import type knex from "knex";
 
-export async function saveNetworkLog(
-  dbClient: string,
-  dbUrl: string,
-  payload: unknown
-) {
-  const knexClient = knex({ client: dbClient, connection: dbUrl });
+export async function saveNetworkLog(knexClient: knex.Knex, payload: unknown) {
   await knexClient("gg_be_core_external_calls")
     .insert(payload)
-    .then(() => console.log("External Call logged."))
+    .then(() => console.log({ "External Call logged: ": payload }))
     .catch((error) =>
       console.error(`External Call log failed. ${JSON.stringify(error)}`)
     );
