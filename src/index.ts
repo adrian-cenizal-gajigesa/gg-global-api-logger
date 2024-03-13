@@ -1,1 +1,2 @@
-export * from "./libs/httpWrapper";
+import init from "./libs/httpWrapper";
+export default init;

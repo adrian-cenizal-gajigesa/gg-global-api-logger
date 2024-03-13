@@ -7,10 +7,6 @@ import safePromise from "./safePromise";
 import { streamToJson } from "./streamToJson";
 import { saveNetworkLog } from "./storeToDatabase";
 
-export enum Database_Types {
-  PG = "pg",
-}
-
 const LATENCY_TIMES = new Map();
 let IGNORED_HOST: string[] = [];
 
@@ -23,8 +19,8 @@ function isRouteIgnored(route: string) {
   });
 }
 
-export function initHttpWrapper(
-  dbClient: Database_Types,
+export default function init(
+  dbClient: "pg" | string,
   dbUrl: string,
   serviceName: string,
   ignoredHosts: string[]
