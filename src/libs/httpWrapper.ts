@@ -23,7 +23,7 @@ function isRouteIgnored(route: string) {
   });
 }
 
-export default function initHttpWrapper(
+export function initHttpWrapper(
   dbClient: Database_Types,
   dbUrl: string,
   serviceName: string,
